@@ -1,6 +1,6 @@
 {
-  "id": "bb5714c2-52e9-40e2-852a-6dacad1fd87f",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "e30bd719-77b6-4401-9a66-e8c1afad08cf",
+  "prevId": "bb5714c2-52e9-40e2-852a-6dacad1fd87f",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -108,6 +108,12 @@
           "primaryKey": false,
           "notNull": true,
           "default": "'undeployed'"
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},

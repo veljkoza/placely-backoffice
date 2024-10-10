@@ -1,0 +1,1 @@
+ALTER TABLE "placely-backoffice_website" ADD COLUMN "url" varchar(256);

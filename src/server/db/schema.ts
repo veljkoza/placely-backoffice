@@ -8,6 +8,7 @@ import {
   text,
   jsonb,
   integer,
+  pgEnum,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -38,6 +39,13 @@ export const posts = createTable(
   }),
 );
 
+// export const websiteStatusEnum = pgEnum("status", [
+//   "undeployed",
+//   "deploying",
+//   "deployed",
+//   "error",
+// ]);
+
 // New website model
 export const website = createTable("website", {
   id: serial("id").primaryKey(),
@@ -48,6 +56,9 @@ export const website = createTable("website", {
     () => new Date(),
   ),
   template: varchar("template", { length: 10 }).notNull(), // Enum-like structure
-  configuration: jsonb("configuration").notNull(), // Storing JSON object for title and primaryColor
+  primaryColor: varchar("primaryColor", { length: 10 }).notNull(),
+  title: varchar("title", { length: 256 }).notNull(),
   userId: integer("user_id").references(() => posts.id), // Reference to user model (to be created)
+  status: varchar("status", { length: 30 }).notNull().default("undeployed"),
+  url: varchar("url", { length: 256 }),
 });
