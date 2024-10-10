@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+
 import { website } from "~/server/db/schema";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { z } from "zod";
